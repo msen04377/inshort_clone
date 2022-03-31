@@ -1,11 +1,13 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+// import { StatusBar } from 'expo-status-bar';
+import React from 'react';
+import { StyleSheet, Text, View ,StatusBar} from 'react-native';
+import Context from './API/Context';
+import InshortsTabs from './components/InshortsTabs';
 
-export default function App() {
+function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
+    <View style={[styles.container,{backgroundColor:'#282c35'}]}>
+      <InshortsTabs />
     </View>
   );
 }
@@ -13,8 +15,14 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    marginTop:StatusBar.currentHeight,
   },
 });
+
+export default () =>{
+  return(
+    <Context>
+      <App />
+    </Context>
+  );
+};
