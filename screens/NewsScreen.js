@@ -1,5 +1,5 @@
-import { StyleSheet, Text, View } from 'react-native'
-import React, { useContext } from 'react'
+import { StyleSheet, Text, View ,Dimensions} from 'react-native'
+import React, { useContext,useState } from 'react'
 import Carousel from 'react-native-snap-carousel';
 import { NewsContext } from '../API/Context';
 import SingleNews from '../components/SingleNews';
@@ -12,10 +12,9 @@ const NewsScreen = () => {
   const [activeIndex, setActiveIndex] = useState()
 
   const windowHeight=Dimensions.get('window').height
-  console.log(articles)
 
   return (
-    <View>
+    <View style={styles.carousel}>
       {
         articles && (
           <Carousel 
@@ -37,10 +36,10 @@ const NewsScreen = () => {
 
 export default NewsScreen
 
-// const styles = StyleSheet.create({
-  // carousel: {
-  //   flex: 1,
-  //   transform: [{ scaleY: -1 }],
-  //   backgroundColor: "black",
-  // },
-// })
+const styles = StyleSheet.create({
+  carousel: {
+    flex: 1,
+    transform: [{ scaleY: -1 }],
+    backgroundColor: "black",
+  },
+})
