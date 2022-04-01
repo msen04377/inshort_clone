@@ -1,12 +1,15 @@
 // import { StatusBar } from 'expo-status-bar';
-import React from 'react';
+import React, { useContext } from 'react';
 import { StyleSheet, Text, View ,StatusBar} from 'react-native';
-import Context from './API/Context';
+import Context, { NewsContext } from './API/Context';
 import InshortsTabs from './components/InshortsTabs';
 
 function App() {
+
+  const { darkTheme } = useContext(NewsContext)
+
   return (
-    <View style={[styles.container,{backgroundColor:'#282c35'}]}>
+    <View style={[styles.container,{backgroundColor: darkTheme ? '#282c35' : 'white'}]}>
       <InshortsTabs />
     </View>
   );

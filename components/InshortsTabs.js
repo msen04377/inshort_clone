@@ -7,6 +7,8 @@ import TopNavigation from './TopNavigation';
 import { NewsContext } from '../API/Context';
 
 const InshortsTabs = () => {
+  const { darkTheme } = useContext(NewsContext)
+  
   const layout = useWindowDimensions();
 
   const {index,setIndex} = useContext(NewsContext)
